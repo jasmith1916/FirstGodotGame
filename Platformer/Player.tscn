@@ -1,0 +1,211 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/gox/idle/idle1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/gox/idle/idle2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/gox/idle/idle3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/gox/idle/idle4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/gox/Light/light1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/gox/Light/light2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/gox/Light/light3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/gox/Light/light4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/gox/Light/light5.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/gox/jump/down.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/gox/jump/up.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/gox/run/run1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player/gox/run/run2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/gox/run/run3.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/gox/run/run4.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/gox/run/run5.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/gox/run/run6.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/gox/Punch/punch1.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/gox/Punch/punch2.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/gox/Punch/punch3.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/gox/Punch/punch4.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/gox/Punch/punch5.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/backround.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/fill.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Sky.png" type="Texture" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Light",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Run",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Punch",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.0
+height = 30.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15.25, 7 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Lightning"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lightning/LightningHit:shape:extents")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 13, 7 ), Vector2( 28, 7 ), Vector2( 46, 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Lightning/LightningHit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 51, 38 ), Vector2( 65, 40 ), Vector2( 82, 40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Lightning/LightningHit:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "LightningLeft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lightning/LightningHit:shape:extents")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 13, 7 ), Vector2( 28, 7 ), Vector2( 46, 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Lightning/LightningHit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -51, 38 ), Vector2( -65, 40 ), Vector2( -82, 40 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Lightning/LightningHit:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 17, 29 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Light"
+frame = 2
+centered = false
+offset = Vector2( -20, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="PlayerBox" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 43 )
+shape = SubResource( 2 )
+
+[node name="Lightning" type="Area2D" parent="."]
+
+[node name="LightningHit" type="CollisionShape2D" parent="Lightning"]
+position = Vector2( -33.6, 38.3 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Lightning = SubResource( 4 )
+anims/LightningLeft = SubResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 5.0
+margin_top = 340.0
+margin_right = 473.0
+margin_bottom = 400.0
+rect_scale = Vector2( 0.25, 0.25 )
+value = 50.0
+texture_under = ExtResource( 24 )
+texture_progress = ExtResource( 25 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 640, 640 )
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 26 )
+centered = false
+
+[node name="playercollision" type="Area2D" parent="."]
+
+[node name="PlayerBox2" type="CollisionShape2D" parent="playercollision"]
+position = Vector2( 0, 43 )
+shape = SubResource( 6 )
+

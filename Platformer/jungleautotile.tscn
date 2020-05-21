@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Tiles/JungleDirtAutoTile copy.png" type="Texture" id=1]
+
+[node name="Node" type="Node"]
+
+[node name="JungleDirtAutoTile copy" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+

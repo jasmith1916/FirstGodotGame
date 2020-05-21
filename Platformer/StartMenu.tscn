@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Start Menu/Title.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Start Menu/start.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Start Menu/START FOCUSED.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Start Menu/exit.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Start Menu/exit focused.png" type="Texture" id=7]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=8]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -78.0 ]
+}
+
+[node name="Sky" type="Sprite" parent="."]
+position = Vector2( 319.803, 320.562 )
+texture = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 270.0
+margin_top = 153.0
+margin_right = 370.0
+margin_bottom = 207.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer/VBoxContainer"]
+position = Vector2( 50, -50 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 54.0
+
+[node name="Start" type="TextureButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 25.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 5 )
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 100.0
+margin_bottom = 54.0
+texture_normal = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+
+[node name="Wall" parent="." instance=ExtResource( 8 )]
+tile_data = PoolIntArray( -65525, 0, 196608, -65524, 0, 196609, -65523, 0, 196609, -65522, 0, 196609, -65521, 0, 196609, -65520, 0, 196609, -65519, 0, 7, 17, 0, 65541, 65553, 0, 65541, 131089, 0, 65541, 262143, 0, 1, 196608, 0, 2, 196619, 0, 1, 196620, 0, 65536, 196621, 0, 65536, 196622, 0, 65536, 196623, 0, 65536, 196624, 0, 65536, 196625, 0, 11, 327679, 0, 131073, 262144, 0, 65539, 262145, 0, 2, 262151, 0, 1, 262152, 0, 65536, 262153, 0, 65536, 262154, 0, 65536, 262155, 0, 65540, 262156, 0, 196619, 262157, 0, 196619, 262158, 0, 196619, 262159, 0, 3, 262160, 0, 131072, 262161, 0, 65538, 393212, 0, 5, 393215, 0, 65537, 327680, 0, 131072, 327681, 0, 65547, 327682, 0, 10, 327683, 0, 65536, 327684, 0, 65536, 327685, 0, 65536, 327686, 0, 65536, 327687, 0, 131078, 327688, 0, 131072, 327689, 0, 131072, 327690, 0, 131072, 327691, 0, 131072, 327692, 0, 131072, 327693, 0, 131072, 327694, 0, 131072, 327695, 0, 65538, 458748, 0, 8, 458749, 0, 2, 393218, 0, 65537, 393219, 0, 131072, 393220, 0, 131072, 393221, 0, 131072, 393222, 0, 131072, 393223, 0, 65538, 393234, 0, 196608, 393235, 0, 196610, 524284, 0, 131073, 524285, 0, 65539, 524286, 0, 2, 458774, 0, 5, 589820, 0, 65537, 589821, 0, 131072, 589822, 0, 65547, 589823, 0, 196609, 524288, 0, 196609, 524289, 0, 196609, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 196609, 524294, 0, 7, 524298, 0, 1, 524299, 0, 65536, 524300, 0, 2, 524304, 0, 5, 524309, 0, 6, 524310, 0, 65543, 589830, 0, 65542, 589831, 0, 196609, 589832, 0, 196609, 589833, 0, 196609, 589834, 0, 65544, 589835, 0, 131072, 589836, 0, 65547, 589837, 0, 196609, 589838, 0, 196609, 589839, 0, 196609, 589840, 0, 65543, 589844, 0, 6, 589845, 0, 65543, 655379, 0, 6, 655380, 0, 65543, 720914, 0, 6, 720915, 0, 65543, 786438, 0, 196608, 786439, 0, 196609, 786440, 0, 196609, 786441, 0, 196609, 786442, 0, 196609, 786443, 0, 196609, 786444, 0, 196609, 786445, 0, 196609, 786446, 0, 196609, 786447, 0, 196609, 786448, 0, 196609, 786449, 0, 196609, 786450, 0, 65543 )
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]

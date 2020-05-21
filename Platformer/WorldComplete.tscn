@@ -1,0 +1,39 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://WorldComplete.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Portal/Portal1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Portal/portal2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Portal/portal3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Portal/portal4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Portal/portal5.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Portal/portal6.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Portal/portal7.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Portal/portal8.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Spinning",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 70 )
+
+[node name="WorldComplete" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "Spinning"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
